@@ -1,0 +1,19 @@
+---
+type: container
+version: 1
+name: example-test2
+description: Run test
+
+inputs:
+  artifacts:
+    CODE:
+        path: /src/main
+    BINARY:
+        path: /src
+
+resources:
+    mem_mib: 256
+    cpu_cores: 0.1
+image: golang:1.6
+command: ["sh", "-c"]
+args: [cd /src && ls -ltr && go test -v]
